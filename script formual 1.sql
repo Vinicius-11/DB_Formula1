@@ -1,7 +1,6 @@
 drop database formula_1;
 create database formula_1;
 
-
 use formula_1;
 
 create table tb_formula1 
@@ -13,14 +12,12 @@ create table tb_formula1
 );
 
 
-
 create table  tb_paises 
 (
    code_pais  	varchar(3) not null,
    nome       	varchar(100) not null,
    primary key ( code_pais )
 );
-
 
 
 create table  tb_estado
@@ -33,7 +30,6 @@ create table  tb_estado
 );
 
 
-
 create table  tb_cidade 
 (
    id_cidade	int not null,
@@ -42,7 +38,6 @@ create table  tb_cidade
    primary key ( id_cidade ),
    foreign key ( id_estado ) references tb_estado (id_estado)
 );
-
 
 
 create table tb_circuito
@@ -57,13 +52,12 @@ create table tb_circuito
 );
 
 
-
 create table tb_equipe
 (
 	code_equipe 	varchar (3) not null,
 	nome 			varchar (60) not null,
-    motor 			varchar (50) not null,
-    sede 			varchar (45) not null,
+    	motor 			varchar (50) not null,
+    	sede 			varchar (45) not null,
     primary key ( code_equipe )
 );
 
@@ -74,10 +68,10 @@ create table tb_treino
 (
 	id_treino		int not null,
     sessao		 	varchar(30) not null,
-    dia_treino 		varchar (20) not null,
+    dia_treino 			varchar (20) not null,
 	dt_treino		date not null,
-    hr_treino		time not null,
-    id_circuito		int not null,
+    hr_treino			time not null,
+    id_circuito			int not null,
     primary key ( id_treino ),
     foreign key ( id_circuito ) references tb_circuito (id_circuito)
 );
@@ -128,8 +122,6 @@ create table rl_classificacao_gp
 );
 
 
-
-
 create table rl_classificacao_equipe
 (
     ano_temporada 	int not null,
@@ -159,9 +151,6 @@ create table rl_classificacao_piloto
 );
 
 
-
-
-
 create table rl_grid_gp
 (
     id_treino 		int not null,
@@ -173,15 +162,12 @@ create table rl_grid_gp
 );
 
 
-
-
 /*INSERINDO DADOS NAS TABELAS*/
 use formula_1;
 
 select * from tb_formula1;
 insert into tb_formula1 values
 (2023, '2023-03-05', '2023-11-26');
-
 
 
 select * from tb_paises;
