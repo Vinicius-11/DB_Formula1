@@ -603,17 +603,18 @@ select * from tb_equipe;
 select * from rl_classificacao_gp;
 
 select 
-    gp.gp_nome as grande_premio, 
-    e.nome as equipe,
-    group_concat(p.nome separator ', ') as pilotos,
-    sum(cl.pontuacao) as pontos
+    gp.gp_nome as 'Grande Prêmio', 
+    e.nome as 'Equipe',
+    GROUP_CONCAT(p.nome SEPARATOR ', ') as 'Pilotos',
+    SUM(cl.pontuacao) as 'Pontos Totais'
 from rl_classificacao_gp as cl
-inner join tb_piloto p on cl.code_piloto = p.code_piloto
-inner join tb_grande_premio gp on gp.gp_nome = cl.gp_nome
-left join tb_equipe e on e.code_equipe = p.code_equipe
+inner join tb_piloto as p on cl.code_piloto = p.code_piloto
+inner join tb_grande_premio as gp on gp.gp_nome = cl.gp_nome
+left join tb_equipe as e on e.code_equipe = p.code_equipe
 where e.code_equipe = 'RED'
 group by gp.gp_nome, e.nome
 order by gp.data_gp;
+
     
 /*SELECIONAR TODOS OS DADOS DOS GRANDE_PREMIO*/
 select * from tb_paises;
