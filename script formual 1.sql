@@ -68,10 +68,10 @@ create table tb_treino
 (
 	id_treino		int not null,
     sessao		 	varchar(30) not null,
-    dia_treino 			varchar (20) not null,
+    dia_treino 		varchar (20) not null,
 	dt_treino		date not null,
-    hr_treino			time not null,
-    id_circuito			int not null,
+    hr_treino		time not null,
+    id_circuito		int not null,
     primary key ( id_treino ),
     foreign key ( id_circuito ) references tb_circuito (id_circuito)
 );
@@ -600,7 +600,7 @@ select 	gp.gp_nome 			as 'Grande Prêmio',
  /*SELECIONA OS PILOTOS DA RED BULL E A SOMA DOS PONTOS DA EQUIPE RED BULL*/
 use formula_1;    
 select * from tb_equipe;
-select * from tb_classificacao_gp;
+select * from rl_classificacao_gp;
 
 select 
     gp.gp_nome as grande_premio, 
